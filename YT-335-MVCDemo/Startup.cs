@@ -24,6 +24,19 @@ namespace YT_335_MVCDemo
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+
+
+            // 08/20/2021 03:06 pm - SSN - [20210820-1506] - [001] - 01 - Adding Blazor
+            // Need to install Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation (5.0.0)
+            // services.AddControllersWithViews().AddRazorRuntimeCompilation();
+
+            services.AddServerSideBlazor();
+
+
+
+            // Enable Razor server.  Razor Web Assembly is another option.
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -49,6 +62,12 @@ namespace YT_335_MVCDemo
 
             app.UseEndpoints(endpoints =>
             {
+
+                // 08/20/2021 03:21 pm - SSN - [20210820-1506] - [005] - 01 - Adding Blazor
+                endpoints.MapBlazorHub();
+
+
+
                 endpoints.MapRazorPages();
             });
         }
